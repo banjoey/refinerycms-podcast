@@ -8,3 +8,6 @@
     
     # Sign up for a http://rubygems.org/ account and publish the gem
     gem push refinerycms-podcasts.gem
+
+## After install
+    rails generate acts_as_taggable_on:migration

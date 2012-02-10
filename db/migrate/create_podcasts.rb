@@ -6,6 +6,7 @@ class CreatePodcasts < ActiveRecord::Migration
       t.string :author
       t.string :subtitle
       t.integer :file_id
+      t.integer :photo_id
       t.date :published
       t.string :duration
       t.string :keywords

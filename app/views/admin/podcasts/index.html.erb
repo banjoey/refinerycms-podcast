@@ -36,12 +36,12 @@
     </li>
   <% if !searching? and Podcast.count > 1 and Admin::PodcastsController.sortable? %>
     <li>
-      <%= link_to t('.reorder', :what => "Podcasts"),
+      <%= link_to t('.reorder', :what => "podcasts"),
                    admin_podcasts_url,
                    :id => "reorder_action",
                    :class => "reorder_icon" %>
 
-      <%= link_to t('.reorder_done', :what => "Podcasts"),
+      <%= link_to t('.reorder_done', :what => "podcasts"),
                    admin_podcasts_url,
                    :id => "reorder_action_done",
                    :style => "display: none;",
@@ -54,3 +54,9 @@
             :locals => {
               :tree => false
             } if !searching? and Podcast.count > 1 %>
+
+<p>
+  <strong>
+    NOTE: Please update Refinery Settings prefixed with podcast to properly build your podcast feed.
+  </strong>
+</p>

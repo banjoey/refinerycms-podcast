@@ -2,7 +2,6 @@ class PodcastsController < ApplicationController
 
   before_filter :find_all_podcasts
   before_filter :find_page
-  before_filter :set_content_permissions, :only => [:show]
   
   def index
     respond_to do |format|
@@ -16,7 +15,6 @@ class PodcastsController < ApplicationController
   
   def show
     @podcast = Podcast.find(params[:id])
-    check_content_availability(@podcast)
   end
 
 protected

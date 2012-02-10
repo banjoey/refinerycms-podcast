@@ -1,6 +1,6 @@
 User.find(:all).each do |user|
   user.plugins.create(:name => "podcasts",
-                      :position => (user.plugins.maximum(:position) || -1) +1)
+                      :position => (user.plugins.maximum(:position) || -1) +1) rescue nil
 end
 
 page = Page.create(

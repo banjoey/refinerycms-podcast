@@ -5,19 +5,20 @@ Feature: Podcasts
   I want to manage podcasts
 
   Background:
-    Given I am a logged in refinery user
-    And I have no podcasts
+    Given I am a Refinery user
+    And I have plugins for "podcasts"
+    And I log in as admin
 
   @podcasts-list @list
   Scenario: Podcasts List
    Given I have podcasts titled UniqueTitleOne, UniqueTitleTwo
-   When I go to the list of podcasts
+   When I follow "Podcasts"
    Then I should see "UniqueTitleOne"
    And I should see "UniqueTitleTwo"
 
   @podcasts-valid @valid
   Scenario: Create Valid Podcast
-    When I go to the list of podcasts
+    When I follow "Podcasts"
     And I follow "Add New Podcast"
     And I fill in "Title" with "This is a test of the first string field"
     And I press "Save"
@@ -26,7 +27,7 @@ Feature: Podcasts
 
   @podcasts-invalid @invalid
   Scenario: Create Invalid Podcast (without title)
-    When I go to the list of podcasts
+    When I follow "Podcasts"
     And I follow "Add New Podcast"
     And I press "Save"
     Then I should see "Title can't be blank"
@@ -35,7 +36,7 @@ Feature: Podcasts
   @podcasts-edit @edit
   Scenario: Edit Existing Podcast
     Given I have podcasts titled "A title"
-    When I go to the list of podcasts
+    When I follow "Podcasts"
     And I follow "Edit this podcast" within ".actions"
     Then I fill in "Title" with "A different title"
     And I press "Save"
@@ -46,7 +47,7 @@ Feature: Podcasts
   @podcasts-duplicate @duplicate
   Scenario: Create Duplicate Podcast
     Given I only have podcasts titled UniqueTitleOne, UniqueTitleTwo
-    When I go to the list of podcasts
+    When I follow "Podcasts"
     And I follow "Add New Podcast"
     And I fill in "Title" with "UniqueTitleTwo"
     And I press "Save"
@@ -56,7 +57,7 @@ Feature: Podcasts
   @podcasts-delete @delete
   Scenario: Delete Podcast
     Given I only have podcasts titled UniqueTitleOne
-    When I go to the list of podcasts
+    When I follow "Podcasts"
     And I follow "Remove this podcast forever"
     Then I should see "'UniqueTitleOne' was successfully removed."
     And I should have 0 podcasts

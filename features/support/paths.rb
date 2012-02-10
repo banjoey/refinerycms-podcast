@@ -4,10 +4,10 @@ module NavigationHelpers
       def path_to(page_name)
         case page_name
         when /the list of podcasts/
-          admin_podcasts_path
+          '/refinery/podcasts'
 
          when /the new podcast form/
-          new_admin_podcast_path
+          '/refinery/podcasts/new'
         else
           nil
         end
@@ -15,3 +15,4 @@ module NavigationHelpers
     end
   end
 end
+
