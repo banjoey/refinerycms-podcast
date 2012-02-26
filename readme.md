@@ -1,4 +1,8 @@
 # Podcasts engine for Refinery CMS.
+    Updated by Joey Barkley. Engine now reads
+    information from mp3 file and saves title,
+    author, and description fields automatically
+    if fields are blank on the form.
 
 ## How to build this engine as a gem
 

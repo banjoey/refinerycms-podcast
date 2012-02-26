@@ -7,6 +7,7 @@
   <div class='field'>
     <%= f.label :title -%>
     <%= f.text_field :title, :class => 'larger widest' -%>
+    <%= refinery_help_tag "If left blank, text will be read from the title tag from the specified mp3 file." %>
   </div>
 
   <div class='field'>
@@ -59,6 +60,7 @@
   <div class='field'>
     <%= f.label :author -%>
     <%= f.text_field :author -%>
+    <%= refinery_help_tag "If left blank, text will be read from the title tag from the specified mp3 file." %>
   </div>
 
   <div class='field'>
