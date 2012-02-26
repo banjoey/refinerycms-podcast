@@ -55,7 +55,7 @@ xml.rss 'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd', :version
         xml.tag!('itunes:author', item.author)
         xml.tag!('itunes:subtitle', item.subtitle)
         xml.tag!('itunes:summary', item.summary)
-        xml.enclosure :url => (request.protocol + request.host_with_port + item.file.file_name), :length => item.file.size, :type => item.file.file_mime_type
+        xml.enclosure :url => (request.protocol + request.host_with_port + item.file.file_url), :length => item.file.size, :type => item.file.file_mime_type
         xml.guid (request.protocol + request.host_with_port + item.file.file_name)
         xml.tag!('pubDate', item.published.to_time.rfc2822)
         xml.tag!('itunes:duration', item.duration)
