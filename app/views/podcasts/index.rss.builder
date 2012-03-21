@@ -41,7 +41,7 @@ xml.rss 'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd', :version
 
     # upload an image to your resources tab and link it in here
     # iTunes prefers square .jpg images that are at least 600 x 600 pixels
-    xml.tag!('itunes:image', :href => 'http://mysite.com/system/0000/1000x1000.jpg')
+    #xml.tag!('itunes:image', :href => 'http://mysite.com/system/0000/1000x1000.jpg')
 
     # select from the list of categories here:
     # http://www.apple.com/itunes/podcasts/specs.html#categories
@@ -52,15 +52,22 @@ xml.rss 'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd', :version
     @items.select{|item| item.file}.each do |item|
       xml.item do
         xml.title item.title
-        xml.tag!('itunes:author', item.author)
-        xml.tag!('itunes:subtitle', item.subtitle)
-        xml.tag!('itunes:summary', item.summary)
+        xml.itunes :author, item.author
+        #xml.tag!('itunes:author', item.author)
+        xml.itunes :subtitle, item.subtitle
+        #xml.tag!('itunes:subtitle', item.subtitle)
+        xml.itunes :summary, item.summary
+        #xml.tag!('itunes:summary', item.summary)
         xml.enclosure :url => (request.protocol + request.host_with_port + item.file.file_url), :length => item.file.size, :type => item.file.file_mime_type
         xml.guid (request.protocol + request.host_with_port + item.file.file_name)
-        xml.tag!('pubDate', item.published.to_time.rfc2822)
-        xml.tag!('itunes:duration', item.duration)
-        xml.tag!('itunes:keywords', item.keywords)
-        xml.tag!('itunes:explicit', 'no')
+        xml.pubDate, item.published.to_time.rfc2822
+        #xml.tag!('pubDate', item.published.to_time.rfc2822)
+        xml.itunes :duration, item.duration
+        #xml.tag!('itunes:duration', item.duration)
+        xml.itunes :keywords, item.keywords
+        #xml.tag!('itunes:keywords', item.keywords)
+        xml.itunes :explicit, 'no'
+        #xml.tag!('itunes:explicit', 'no')
       end
     end
   end
