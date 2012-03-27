@@ -61,7 +61,7 @@ xml.rss 'xmlns:itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd', :version
         xml.enclosure :url => (request.protocol + request.host_with_port + item.file.file_url), :length => item.file.size, :type => item.file.file_mime_type
         xml.guid (request.protocol + request.host_with_port + item.file.file_name)
         puts item.published
-        xml.pubDate, item.published.to_time.rfc2822 if !item.published.nil?
+        #xml.pubDate, item.published.to_time.rfc2822 if !item.published.nil?
         #xml.tag!('pubDate', item.published.to_time.rfc2822)
         xml.itunes :duration, item.duration
         #xml.tag!('itunes:duration', item.duration)
