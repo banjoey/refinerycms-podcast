@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = 'refinerycms-podcasts'
-  s.version           = '0.9.1'
+  s.version           = '0.9.2'
   s.description       = 'Ruby on Rails Podcasts engine for Refinery CMS'
   s.date              = '2012-02-09'
   s.summary           = 'Podcasts engine for Refinery CMS'
